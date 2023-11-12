@@ -5,11 +5,13 @@ body {
 .product-list {
     display: flex;
     background-color: black;
+    flex-wrap: wrap;
 }
 
 .product-item {
-    margin-right: 90px;
-    margin-left: 50px;
+    margin-right: 50px;
+    margin-left: 80px;
+    margin-bottom: 70px;
 }
 
 .product-item p:nth-of-type(1) {
@@ -19,7 +21,7 @@ body {
     -webkit-background-clip: text;
     color: transparent;
     margin-left: 140px;
-    margin-top: -10px;
+    margin-top: 10px;
 }
 
 .product-item p:nth-of-type(2) {

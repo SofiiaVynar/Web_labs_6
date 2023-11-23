@@ -3,11 +3,12 @@ import logo from '../home/Fotoes/logo.png';
 import './catalog_header.css';
 import searchIcon from './Fotoes/loupe.png';
 
-function Header() {
+function Header({ onSearch }) {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = () => {
         console.log('Search for:', searchTerm);
+        onSearch(searchTerm);
     };
 
     return (
@@ -34,10 +35,9 @@ function Header() {
                     className="search-icon"
                     onClick={handleSearch}
                 />
-            </div>
+                </div>
         </header>
-    );
+        );
 }
 
 export default Header;
-

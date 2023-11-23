@@ -13,7 +13,7 @@ function CatalogFilter({ onApply }) {
             filter3,
         });
     };
-
+    
     return (
         <div className="catalog-filter">
             <select value={filter1} onChange={(e) => setFilter1(e.target.value)}>
@@ -24,16 +24,16 @@ function CatalogFilter({ onApply }) {
             </select>
 
             <select value={filter2} onChange={(e) => setFilter2(e.target.value)}>
-                <option value="">Об'єм</option>
-                <option value="Item1">30мл</option>
-                <option value="Item2">50мл</option>
-                <option value="Item3">100мл</option>
+                <option value="">Тип</option>
+                <option value="Item1">Новинка</option>
+                <option value="Item2">Хіт продаж</option>
             </select>
 
             <select value={filter3} onChange={(e) => setFilter3(e.target.value)}>
-                <option value="">Для кого</option>
-                <option value="Item1">Для неї</option>
-                <option value="Item2">Для нього</option>
+                <option value="">Виробник</option>
+                <option value="Item1">Dior</option>
+                <option value="Item2">Hugo Boss</option>
+                <option value="Item3">Helene Fischer</option>
             </select>
             <div className="button">
                 <button onClick={handleApply}>Apply</button>

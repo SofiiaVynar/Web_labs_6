@@ -42,7 +42,7 @@
     font-style: italic;
 }
 
-.text h4 {
+.text h3 {
     font-size: 35px;
     text-align: center;
     margin-left: 70px;
@@ -52,8 +52,6 @@
     -webkit-text-fill-color: transparent;
     text-shadow: 3px 3px 0 rgb(139, 118, 118), 3px 3px 0 rgb(255, 0, 0);
 }
-
-
 
 img {
     max-width: 600px;

@@ -1,0 +1,27 @@
+.catalog-filter {
+    display: flex;
+    margin-top: -80px;
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+}
+
+.catalog-filter select {
+    border: none;
+    border-radius: 20px; 
+    padding: 10px;
+    margin: 0;
+    margin-left: 100px;
+}
+
+.catalog-filter button {
+    font-size: 18px;
+    border: none; 
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 20px; 
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 820px;
+}
+
+

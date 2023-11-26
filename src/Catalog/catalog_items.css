@@ -1,0 +1,79 @@
+.catalog-items {
+    display: flex;
+    flex-wrap: nowrap; 
+    overflow-x: auto;
+    border-radius: 10px;
+    border-color: #ffffff;
+    margin-top: 40px;
+    margin-left: 117px;
+}
+
+.catalog-item {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.texts h2 {
+    font-size: 28px; 
+    font-weight: bold; 
+    text-align: center;
+    background: linear-gradient(to right, rgb(255, 0, 0) -20%, white);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-style: italic;
+}
+
+.caption1 {
+    font-size: 24px; 
+    font-weight: normal;
+    text-align: center;
+    background: linear-gradient(to right, rgb(79, 8, 8) -20%, white);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.caption2{
+    font-size: 17px;
+    text-align: center;
+    margin-top: -15px;
+    font-style: oblique;
+    color:rgb(188, 172, 186);
+}
+
+.caption3{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.caption4{
+    display: flex;
+    margin-top: -38px;
+    margin-left: 240px;
+    font-size: 17px;
+    font-style: italic;
+}
+
+.catalog-view {
+    text-align: center; 
+    font-size: 18px;
+    width: 150px;
+    padding: 11px;
+    cursor: pointer;
+    margin-left: 95px;
+    background-color: #cb8989;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+.catalog-view:hover {
+    background-color: #d4d4d4;
+}

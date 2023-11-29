@@ -35,7 +35,7 @@ function ItemPage() {
 
     return (
         <div className='selected_container'>
-            <img className='selected_image' src={selectedItem.image} alt={selectedItem.title} />
+            <img className='selected_image' src={`http://localhost:3001${selectedItem.image}`} alt={selectedItem.title} />
             <p className='selected_caption1'>{selectedItem.caption1}</p>
             <p className='selected_caption2'>{selectedItem.caption2}</p>
             <p className='selected_caption4'>Price: {selectedItem.caption4}</p>

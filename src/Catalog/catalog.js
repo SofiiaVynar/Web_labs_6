@@ -76,7 +76,7 @@ function Catalog() {
                         <div key={item.id} className="catalog-item">
                             <div className='texts'>
                                 <h2>{item.title}</h2>
-                                <img src={`/Fotoes/${item.image}`} alt={item.title} />
+                                <img src={`http://localhost:3001${item.image}`} alt={item.title} />
                                 <p style={{ marginTop: item.caption1margin || '0' }} className='caption1'>{item.caption1}</p>
                                 <p className='caption2'>{item.caption2}</p>
                                 <p className='caption3'>Price:</p>

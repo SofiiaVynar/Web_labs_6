@@ -8,8 +8,9 @@ const dbConfig = require('./db.config.js');
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-const path = require('path'); 
-app.use(express.static(path.join(__dirname, 'Fotoes')));
+const path = require('path');
+const fotoesPath = path.join('C:', 'Users', 'Admin', 'Web', 'Lab_6', 'perfumes', 'src', 'Catalog', 'Fotoes');
+app.use('/Fotoes', express.static(fotoesPath));
 
 const connection = mysql.createConnection({
     host: dbConfig.HOST,
@@ -32,13 +33,15 @@ app.get('/perfumesbd', (req, res) => {
 
     if (filter1) {
         if (filter1 === 'Item1') {
-            query += ' AND CONVERT(SUBSTRING_INDEX(caption4, " ", -1), UNSIGNED) < 1000';
+            query += ' AND caption4 LIKE "%₴" AND CONVERT(SUBSTRING_INDEX(caption4, " ₴", 1), UNSIGNED) <= 1000';
         } else if (filter1 === 'Item2') {
-            query += ' AND CONVERT(SUBSTRING_INDEX(caption4, " ", -1), UNSIGNED) <= 3000';
+            query += ' AND caption4 LIKE "%₴" AND CONVERT(SUBSTRING_INDEX(caption4, " ₴", 1), UNSIGNED) <= 3000 AND CONVERT(SUBSTRING_INDEX(caption4, " ₴", 1), UNSIGNED) <= 3000';
         } else if (filter1 === 'Item3') {
-            query += ' AND CONVERT(SUBSTRING_INDEX(caption4, " ", -1), UNSIGNED) > 3000';
+            query += ' AND caption4 LIKE "%₴" AND CONVERT(SUBSTRING_INDEX(caption4, " ₴", 1), UNSIGNED) > 3000';
         }
     }
+
+
 
     if (filter2) {
         if (filter2 === 'Новинка') {
@@ -60,7 +63,7 @@ app.get('/perfumesbd', (req, res) => {
 
     if (searchTerm) {
         query += ` AND caption1 LIKE '%${searchTerm}%'`;
-    }    
+    }
 
     connection.query(query, (error, results) => {
         if (error) {
@@ -71,6 +74,7 @@ app.get('/perfumesbd', (req, res) => {
                 ...item,
                 image: `/Fotoes/${item.image}`
             }));
+            
             res.json(updatedResults);
         }
     });
@@ -102,8 +106,11 @@ app.get('/perfumesbd/:itemId', (req, res) => {
 
 app.post('/perfumesbd', (req, res) => {
     const item = req.body;
-    const query = 'INSERT INTO perfumes (id, title, image, caption1, caption2, caption4, caption1margin) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    const values = [item.title, item.image, item.caption1, item.caption2, item.caption4, item.caption1margin || null]; 
+
+    const imagePath = path.join('Fotoes', item.image);
+    const query = 'INSERT INTO perfumes (title, image, caption1, caption2, caption4, caption1margin) VALUES (?, ?, ?, ?, ?, ?)';
+    const values = [item.title, imagePath, item.caption1, item.caption2, item.caption4, item.caption1margin || null];
+
 
     connection.query(query, values, (error, result) => {
         if (error) {
@@ -115,6 +122,7 @@ app.post('/perfumesbd', (req, res) => {
         }
     });
 });
+
 
 app.listen(3001, () => {
     console.log('Сервер запущено на порті 3001');

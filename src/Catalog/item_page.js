@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import './item_page.css';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../Cart/card_actions';
+import { useSelector } from 'react-redux';
 
 function ItemPage() {
     const { itemId } = useParams();
@@ -19,15 +22,17 @@ function ItemPage() {
         fetchItem();
     }, [itemId]);
 
+    const dispatch = useDispatch();
+    const cartItems = useSelector(state => state.cart.items);
+
     const handleAddToCart = () => {
-        if (selectedItem) {
-            console.log(`Added ${quantity} ${selectedItem.title} ${selectedMl}ml to the cart.`);
-        }
+        dispatch(addToCart(selectedItem));
     };
+    
 
     const [selectedItem, setSelectedItem] = useState(null);
     const [quantity, setQuantity] = useState(1);
-    const [selectedMl, setSelectedMl] = useState(50); 
+    const [selectedMl, setSelectedMl] = useState(50);
 
     if (!selectedItem) {
         return <div>Item not found</div>;
@@ -39,7 +44,7 @@ function ItemPage() {
             <p className='selected_caption1'>{selectedItem.caption1}</p>
             <p className='selected_caption2'>{selectedItem.caption2}</p>
             <p className='selected_caption4'>Price: {selectedItem.caption4}</p>
-            
+
             <label htmlFor="quantity">Quantity:</label>
             <input
                 className='quantity'

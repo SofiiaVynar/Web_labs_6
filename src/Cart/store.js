@@ -1,11 +1,22 @@
 import { createStore, combineReducers } from 'redux';
-import cartReducer from './cart_reducer';
+import cartSlicer from './cartSlice';
 
 const rootReducer = combineReducers({
-    cart: cartReducer,
+    cart: cartSlicer,
 });
 
-const store = createStore(rootReducer);
+const persistedState = localStorage.getItem('reduxState')
+    ? JSON.parse(localStorage.getItem('reduxState'))
+    : {};
+
+const store = createStore(
+    rootReducer,
+    persistedState
+);
+
+store.subscribe(() => {
+    localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+});
 
 export default store;
 

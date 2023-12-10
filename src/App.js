@@ -5,24 +5,23 @@ import Catalog from './Catalog/catalog';
 import Footer from './home/footer';
 import Item from './Catalog/item_page';
 import Card from './Cart/cart';
-import store from './Cart/store';
-import { Provider } from 'react-redux';
+
 
 function App() {
     return (
-        <Router>
-            <div className="App">
-                <Routes>
-                    <Route path="" element={<Home />} />
-                    <Route path="/perfumes" element={<Home />} />
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/catalog" element={<Catalog />} />
-                    <Route path="item/:itemId" element={<Provider store={store}><Item /></Provider>} />
-                    <Route path="/cart" element={<Provider store={store}><Card /></Provider>} />
-                </Routes>
-                <Footer /> 
-            </div>
-        </Router>
+            <Router>
+                <div className="App">
+                    <Routes>
+                        <Route path="" element={<Home />} />
+                        <Route path="/perfumes" element={<Home />} />
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/catalog" element={<Catalog />} />
+                        <Route path="/item/:itemId" element={<Item />} />
+                        <Route path="/cart" element={<Card />} />
+                    </Routes>
+                    <Footer />
+                </div>
+            </Router>
     );
 }
 

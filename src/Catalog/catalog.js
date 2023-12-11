@@ -25,7 +25,6 @@ function Catalog() {
                 });
                 setPerfumes(response.data);
                 setFilters(newFilters);
-                setLoading(false);
             }, 1000);
         } catch (error) {
             console.error('Error:', error);

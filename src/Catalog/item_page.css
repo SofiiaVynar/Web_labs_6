@@ -62,3 +62,9 @@
     position: absolute;
     margin-left: 1050px;
 }
+
+.success{
+    color: green;
+    font-size: 19px;
+    display: flex;
+}

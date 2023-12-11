@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from './cartSlice';
 import Header from '../home/home_header';
+import { Link } from 'react-router-dom'; 
 import './cart.css';
 
 function Cart() {
@@ -34,6 +35,7 @@ function Cart() {
                         </div>
                     ))}
                     <p className='total'>Total Price: ${totalPrice}</p>
+                    <Link to="/login" className='buyButton'>Buy</Link>
                 </div>
             )}
         </div>

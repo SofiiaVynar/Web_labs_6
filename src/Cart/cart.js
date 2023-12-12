@@ -1,23 +1,34 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { removeFromCart } from './cartSlice';
 import Header from '../home/home_header';
 import { Link } from 'react-router-dom'; 
 import './cart.css';
+import { logout } from '../auth';
 
 function Cart() {
     const cartItems = useSelector(state => state.cart.items);
     const totalPrice = useSelector(state => state.cart.totalPrice);
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
+    
     const handleRemoveFromCart = (itemId) => {
         dispatch(removeFromCart(itemId));
     };
+
+    
+    const handleLogout = () => {
+        logout(); 
+        navigate('/login');
+    };
+
 
     return (
         <div>
             <Header />
             <h1>Cart</h1>
+            <button className="exit-button" onClick={handleLogout}>Exit</button>
             {cartItems.length === 0 ? (
                 <p className='empty'>Your cart is empty</p>
             ) : (
@@ -35,7 +46,7 @@ function Cart() {
                         </div>
                     ))}
                     <p className='total'>Total Price: ${totalPrice}</p>
-                    <Link to="/login" className='buyButton'>Buy</Link>
+                    <Link to="/successful" className='buyButton'>Buy</Link>
                 </div>
             )}
         </div>

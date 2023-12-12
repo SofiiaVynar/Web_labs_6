@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import Header from '../home/home_header';
 import './registration.css';
 import { useNavigate } from 'react-router-dom';
+import { register } from '../auth';
 
 const ErrorMsg = ({ children }) => (
     <div className="error-registr">{children}</div>
@@ -35,10 +36,13 @@ const RegistrationForm = () => {
     };
 
     const handleSubmit = (values) => {
-        console.log('Registration form submitted!', values);
-        localStorage.setItem('userEmail', values.email);
-        localStorage.setItem('userPassword', values.password);
-        navigate('/successful');
+        const isRegistered = register(values); 
+        if (isRegistered) {
+            console.log('Registration form submitted!', values);
+            navigate('/successful');
+        } else {
+            console.log('Registration failed!');
+        }
     };
 
     return (

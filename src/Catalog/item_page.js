@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import './item_page.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../Cart/cartSlice';
 import Header from '../home/home_header';
 
 function ItemPage() {
     const { itemId } = useParams();
     const dispatch = useDispatch();
-    const cartItems = useSelector(state => state.cart.items);
 
     const [selectedItem, setSelectedItem] = useState(null);
     const [quantity, setQuantity] = useState(1);

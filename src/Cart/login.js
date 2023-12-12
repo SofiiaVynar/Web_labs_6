@@ -1,60 +1,49 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 import Header from '../home/home_header';
-
+import './registration.css';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../auth';
 
 const ErrorMsg = ({ children }) => (
-    <div className="error">{children}</div>
+    <div className="error-registr">{children}</div>
 );
 
 const LoginForm = () => {
     const navigate = useNavigate();
 
     const validationSchema = Yup.object().shape({
-        email: Yup.string()
-            .email('Invalid email')
-            .required('Email is required'),
-        password: Yup.string()
-            .min(8, 'Password must be at least 8 characters')
-            .required('Password is required'),
+        email: Yup.string().email('Invalid email').required('Email is required'),
+        password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
     });
-    
 
     const initialValues = {
         email: '',
         password: '',
     };
 
-    const handleSubmit = (values) => {
-        const savedPassword = localStorage.getItem('userPhoneNumber');
-    
-        if (values.password === savedPassword) {
+    const handleLogin = (values) => {
+        if (login(values.email, values.password)) {
             console.log('Login form submitted!', values);
             navigate('/home');
         } else {
             console.log('Invalid credentials!');
         }
     };
-
-    const handleLogout = () => {
-        localStorage.removeItem('userPhoneNumber');
-        localStorage.removeItem('userEmail');
-        navigate('/login');
-    };
-
+    
+    
     return (
         <div>
             <Header />
-            <button className="exit-button" onClick={handleLogout}>Exit</button>
             <h1 className='logiin'>Login</h1>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                onSubmit={handleSubmit}
+                onSubmit={handleLogin}
+
             >
-                {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
+                {({ handleSubmit }) => (
                     <Form className='logform' onSubmit={handleSubmit}>
                         <div>
                             <label>Email:</label>

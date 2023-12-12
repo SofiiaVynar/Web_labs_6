@@ -114,3 +114,9 @@
     font-size: small;
     font-style: italic;
 }
+
+.exit-button{
+    color: #b82828;
+    margin-left: 1500px;
+    margin-top: -300px;
+}

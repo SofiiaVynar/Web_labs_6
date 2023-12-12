@@ -1,0 +1,63 @@
+.first, .last,.mail, .adress {
+    color: #ffffff;
+    font-size: 20px;
+    font-style: italic;
+    margin-left: 610px;
+}
+
+.reg{
+    font-size: 50px;
+    color: #ffffff;
+    margin-left: 700px;
+}
+
+.firstName{
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+.lastName{
+    font-size: 20px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.emmail{
+    font-size: 20px;
+    margin-left: 54px;
+    margin-top: 15px;
+}
+
+.phone{
+    color: #ffffff;
+    font-size: 20px;
+    font-style: italic;
+    margin-left: 591px;
+}
+
+.phon{
+    font-size: 20px;
+    margin-left: 45px;
+    margin-top: 15px;
+}
+
+.addres{
+    font-size: 20px;
+    margin-left: 39px;
+    margin-top: 15px;
+}
+
+
+.regis{
+    font-size: 28px;
+    margin-top: 30px;
+    margin-left: 778px;
+}
+
+.error-registr{
+    color: #f95555;
+    margin-left: 792px;
+    margin-top: 10px;
+    font-size: small;
+    font-style: italic;
+}

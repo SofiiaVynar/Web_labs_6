@@ -47,3 +47,70 @@
     font-size: 20px;
     font-style: italic;
 }
+
+.buyButton {
+    background-color: #602828;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 22px;
+    cursor: pointer;
+    width: 400px;
+    margin-left: 1407px;
+}
+
+.logiin{
+    font-size: 50px;
+    color: #ffffff;
+    margin-left: 730px;
+}
+
+.logform{
+    color: #ffffff;
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 630px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+
+.log{
+    margin-left: 140px;
+    margin-top: 40px;
+}
+
+.pass{
+    font-size: 20px;
+    margin-top: 33px;
+    margin-left: 10px;
+}
+
+.pas{
+    margin-left: -33px;
+}
+
+.email{
+    font-size: 20px;
+    margin-top: 33px;
+    margin-left: 10px;
+}
+
+.password{
+    color: #ff0000;
+    font-style: italic;
+}
+
+.dont{
+    font-size: 15px;
+    margin-left: 730px;
+    margin-top: 20px;
+}
+
+.error{
+    color: #ffffff;
+    margin-left: 120px;
+    margin-top: 10px;
+    font-size: small;
+    font-style: italic;
+}
